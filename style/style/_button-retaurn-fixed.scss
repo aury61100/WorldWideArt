@@ -1,0 +1,157 @@
+$itemCount: 5;
+$rotation: 140 / ($itemCount - 1);
+$angle: 200;
+.fixed{
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 64px;
+	width: 100%;
+	font-family: 'Montaga', serif;
+	&:after, &:before{
+		position: absolute;
+		bottom: 24px;
+		left: 50%;
+		
+		content: '';
+		width: 80px;
+		height: 80px;
+	}
+	&:before
+	{
+		bottom: 64px;
+	}
+	&:after
+	{
+		border-radius: 50%;
+		z-index: 1;
+		clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0 100%);
+	}
+}
+
+.items
+{
+	position: absolute;
+	height: 64px;
+	width: 64px;
+	bottom: 32px;
+	left: 90%;
+	margin-left: -32px;
+}
+.action-label
+{
+	position: absolute;
+	height: 64px;
+	width: 64px;
+	bottom: 32px;
+	left: 90%;
+	margin-left: -32px;
+	padding: 16px;
+	border-radius: 50%;
+	background-color: $primary-color;
+	color: #ffffffa2;
+	font-size: 1rem;
+	z-index: 9999;
+    p{
+        font-family: 'Amalfi-coast';
+    }
+	.fa {
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+		transition: transform 0.4s;
+	}
+    .size{
+        font-size: 1em;
+    }
+}
+
+.action
+{
+	opacity: 0;
+	
+	&:focus ~ .action-label
+	{
+		outline: 5px auto -webkit-focus-ring-color;
+	}
+	
+	&:checked ~ .items .item:focus
+	{
+		transition-delay: 0s!important;
+	}
+	
+	&:checked ~ .action-label
+	{
+		background-color: #ffffff;
+		border-color: $primary-color;
+	
+		.fa
+		{
+			transform: translate(-50%, -50%) rotate(315deg);
+			color: $primary-color;
+		}
+	}
+}
+.item{
+	position: absolute;
+	width: 40px;
+	height: 40px;
+	top: 50%;
+	left: 90%;
+	background-color: $primary-color;
+	border-radius: 50%;
+	transition-delay: 0.1s;
+	transition: 0.1s;
+	transform: translate(-50%, -50%);
+	transform-origin: center center;
+	opacity: 0;
+	visibility: hidden;
+	pointer-events: none;
+    border: none;
+    a{
+        color: #ffffff;
+        font-size: 1em;
+    }
+	.fa{
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+	}
+}
+
+.action:checked ~ .items .item
+{
+	opacity: 1;
+	visibility: visible;
+	pointer-events: initial;
+}
+
+@for $i from 1 through $itemCount {
+	.action:checked ~ .items .item:nth-child(#{$i})
+	{
+		top: 10px;
+		left: 10px;
+		transition-delay: ($i - 1) * 0.1s;
+		transform: 
+          rotate($angle * 1deg) 
+          translate(80px) 
+          rotate($angle * -1deg);
+	}
+	
+	$angle: $angle + $rotation;
+}
+
+@media screen and (max-width:700px) {
+	.items {
+		left: 50%;
+	}
+	.action-label{
+		left: 50%;
+	}
+	.item{
+		left: 50%;
+	}
+}

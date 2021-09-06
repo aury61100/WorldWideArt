@@ -1,0 +1,13 @@
+$primary-color: #EA5B0C;
+$text-color: #333333;
+$text-negative: #f6f6f6;
+body{
+    color: $text-color;
+    background-image: url(./../../images/img_0.webp);
+    background-color: antiquewhite;
+}
+h1,
+h2,
+h3{
+    color: $primary-color;
+}

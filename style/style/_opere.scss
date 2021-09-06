@@ -1,0 +1,146 @@
+.letter{
+    font-size: 2.4em;
+    font-weight: 700;
+    color: $primary-color;
+    font-family: 'Amalfi-coast';
+}
+.return-button{
+    font-family: 'Montaga';
+    font-size: 1em;
+    margin-bottom: 2em;
+    color: rgb(224, 217, 217);
+    &:hover{
+        color: $primary-color;
+        cursor: pointer;
+        transition: 0.8s;
+    }
+}
+.color-dark{
+    color: $text-color;
+    margin: 2em 0;
+    font-weight: 900;
+    font-size: 1.4em;
+    text-decoration: underline;
+}
+.flex-content{
+    display: flex;
+    width: 100%;
+    .header{
+        background-position: 50% 50%;
+        height: 100vh;
+        width: 30%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+        background-blend-mode: darken;
+        background: rgba(0, 0, 0, .65);
+        h2{
+            text-align: center;
+            font-size: 3em; 
+        }
+        h1{
+            font-family: 'Montaga', serif;
+            text-align: center;
+            font-size: 4em;
+            color: $text-negative;
+            margin-top: -1.5em;
+        }
+        .info-opera{
+            color: rgb(224, 217, 217);
+            font-size: 1.2em;
+            margin: 2em 0;
+            padding: 0 3em;
+            text-align: center;
+        }
+    }
+    .contenuto-opera{
+        width: 70%;
+        margin-left: 30%;
+        padding: 1em 4em;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        p{
+            font-size: 1.3em;
+            text-align: justify;
+            margin-top: 1em;
+            line-height: 1.5;
+        }
+        img{
+            width: 80%;
+            height: auto;
+            margin-top: 2em;
+        }
+        .subtitle{
+            font-family: 'Montaga';
+            font-size: 3em;
+            margin: 1em 0;
+            font-weight: 200;
+        }
+        .didascalia{
+            font-size: 0.6em;
+        }
+        i{
+            margin: 2em 0;
+        }
+    }
+
+    #pieta{
+        background-image: url('../../images/Opere/la-Pietà/pieta-vertical.webp');
+        background-size: cover;
+    }
+    #David{
+        background-image: url('../../images/Opere/Il-David/dettaglio-metàbusto.webp');
+        background-size: cover;
+    }
+    #tondo-doni{
+        background-image: url('../../images/Opere/Tondo-Doni/tondo-doni.webp');
+        background-size: cover;
+    }
+    #giudiziouniversale{
+        background-image: url('../../images/Opere/GiudizioUniversale/GiudizioUniversale.webp');
+        background-size: cover;
+    }
+    #Funerali{
+        background-image: url('../../images/stanze/futurismo.webp');
+        background-size: cover;
+    }
+    #Stazione-Milano{
+        background-image: url('../../images/Carlo-carra/stazione-milano.webp');
+        background-size: cover;
+    }
+    #CavaliereRosso{
+        background-image: url('../../images/Carlo-carra/Il-cavaliere-rosso-Carrà.webp');
+        background-size: cover;
+    }
+    #musa{
+        background-image: url('../../images/Carlo-carra/la-musa-metafisica.webp');
+        background-size: cover;
+    }
+}
+@media screen and (max-device-width:700px){
+    .flex-content{
+        flex-direction: column;
+        .header{
+            width: 100%;
+        }
+        .contenuto-opera{
+            width: 100%;
+            padding: 2em;
+            margin-left: 0;
+            img{
+                width: 100%;
+            }
+            p{
+                text-align: left;
+            }
+        }
+    }
+}
+@media screen and (min-device-width:700px) {
+    .header{
+        position: fixed;
+    }
+}
