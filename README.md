@@ -1,4 +1,4 @@
 # WorldWideArt
 vivi l'arte a 360°
 ------------------
-https://worldwideart.netlify.app
+https://worldwideart.altervista.org
